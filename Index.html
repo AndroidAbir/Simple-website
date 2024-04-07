@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Login Page</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        input[type="password"] {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        #uploadSection {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="loginForm" onsubmit="return login()">
+            <input type="password" id="password" name="password" placeholder="Enter Password" required><br>
+            <input type="submit" value="Login">
+        </form>
+
+        <div id="uploadSection">
+            <h2>Image Upload</h2>
+            <form id="imageUploadForm" enctype="multipart/form-data" onsubmit="return uploadImage()">
+                <input type="file" id="imageFile" name="imageFile" accept="image/*" required><br>
+                <input type="submit" value="Upload Image">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            var password = document.getElementById("password").value;
+            if (password === "KJP111016") {
+                document.getElementById("loginForm").style.display = "none";
+                document.getElementById("uploadSection").style.display = "block";
+                return false; // Prevent form submission
+            } else {
+                alert("Incorrect password. Please try again.");
+                return false; // Prevent form submission
+            }
+        }
+
+        function uploadImage() {
+            // Add your image upload logic here
+            // Example: Send form data to server using AJAX
+            alert("Image uploaded successfully!");
+            return false; // Prevent form submission
+        }
+    </script>
+</body>
+</html>
